@@ -6,6 +6,17 @@ body {
   line-height: 1.5;
   color: #6f6f6f;
   text-align: center;
+  transition: background-color 0.5s;
+}
+
+.brogue-active {
+  background-color: #E6E7D9;
+  /* background-color: #C6C8A7; */
+}
+
+.stationary-active {
+  background-color: #D6D9D9;
+  /* background-color: #BDD0D0; */
 }
 
 header {
@@ -87,4 +98,65 @@ footer a {
 
 small {
   color: #ffffff;
+}
+
+.lightbox {
+  /* Fix the lightbox to the page so it can't be scrolled past */
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* Make the lightbox fill the screen */
+  width: 100%;
+  /* Add a semi-transparent dark background */
+  /* rgba allows us to create transparent or semi-transparent colors. It has four values, red, green, blue and alpha. The channels have a minimum value of 0 and a maximum of 255. The alpha channel sets transparency - 1 being completely opaque and 0 being completely transparent. This is the only color representation that allows transparency. */
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Hide the lightbox */
+  /* We would usually use display: none; but this can not be animated so instead we do the following */
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  /* Smooth transition between opacity & height */
+  transition: height 0s, opacity 0.5s;
+}
+
+.fadeIn {
+  height: 100vh;
+  opacity: 1;
+}
+
+.lightbox img {
+  /* To put the lightbox image in the middle of the screen we do this */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* Move the image half it's width and half it's height to the middle of the screen */
+  transform: translate(-50%, -50%);
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+
+  /* Make the nav stack */
+  nav a {
+    display: block;
+    padding: 5px 0;
+  }
+
+  /* Reduce the font size of our h2 to 24px */
+  h2 {
+    font-size: 24px;
+    padding: 0 0 0 0;
+  }
+
+  /* Remove the paragraph padding */
+  p {
+    padding: 0 0 0 0;
+  }
+
+  .container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  /* Decrease the container padding on top & bottom */
 }
